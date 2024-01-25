@@ -4,7 +4,7 @@ import subprocess
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import serialization, hashes
 from datetime import datetime
-from . import helper
+import helper
 from vidstream import StreamingServer
 from cryptography.fernet import Fernet
 
@@ -428,13 +428,13 @@ class Server:
             self.execute()
 
 
-# server = Server('127.0.0.1', 4444)
+server = Server('127.0.0.1', 4444)
 
-# if __name__ == '__main__':
-#     server.build_connection()
+if __name__ == '__main__':
+    server.build_connection()
     
-#     # Start Flask app in a separate process
-#     flask_app_path = os.path.join(os.getcwd(), 'gui/flask_app.py')
-#     subprocess.Popen(['python', flask_app_path])
+    # Start Flask app in a separate process
+    # flask_app_path = os.path.join(os.getcwd(), 'gui/flask_app.py')
+    # subprocess.Popen(['python', flask_app_path])
 
-#     server.execute()
+    server.execute()
